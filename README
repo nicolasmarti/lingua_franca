@@ -1,0 +1,3 @@
+./setup.sh
+source activate.sh
+./clean.sh
