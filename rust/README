@@ -1,0 +1,4 @@
+maturin init
+(...)
+maturin build --release
+copy the target/release/libX.so
