@@ -1,7 +1,7 @@
 # Python
 python -m venv .venv
 source .venv/bin/activate
-pip install llvmlite maturin_import_hook rustimport
+pip install llvmlite maturin_import_hook rustimport juliacall
 
 
 # Ocaml

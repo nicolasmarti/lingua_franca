@@ -1,8 +1,11 @@
 ## Ocaml
 
-from .ocaml import *
+import ocaml
 
 ## Rust
 
-from .rust import *
+import rust
 
+## Julia
+
+import julia
