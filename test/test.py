@@ -9,4 +9,10 @@ sys.path.append(root_dir)
 import lingua_franca
 for i in dir(lingua_franca):
     if "__" not in i:
-        print(i)
+        print("%s: %s" % (
+            i, ", ".join([
+                str(j)
+                for j in dir(lingua_franca.__getattribute__(i))
+                if not "_" in str(j)
+            ])
+        ))

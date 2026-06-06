@@ -1,3 +1,7 @@
+__all__ = [
+    'fibonacci',
+]
+
 import rustimport
 rustimport.settings.compile_on_import = True
 rustimport.settings.compile_release_binaries = True
