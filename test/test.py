@@ -16,3 +16,14 @@ for i in dir(lingua_franca):
                 if not "_" in str(j)
             ])
         ))
+
+from lingua_franca import *
+
+# ocaml
+print(ocaml.Int)
+
+# rust
+print(rust.fibonacci(50))
+
+# julia
+print(julia.fibonacci(6))
