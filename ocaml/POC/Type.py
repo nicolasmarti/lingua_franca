@@ -2,6 +2,4 @@ from .load import *
 
 class Type(m.Type):
 
-    def __init__(self, o):
-        self.__o = o
-        
+    pass

@@ -78,3 +78,8 @@ print(rust.fibonacci(50))
 
 # julia
 print(julia.fibonacci(6))
+
+#
+my_tree = Node(5, Node(3, Empty(), Empty()), Empty())
+print(tree_sum(my_tree))  # Output: 8
+
