@@ -27,6 +27,7 @@ print(Type)
 
 e = Test.TInt(8)
 print(e, type(e))
+print(e("doudou"))
 try:
     #not working
     print(Test.eval(e))
