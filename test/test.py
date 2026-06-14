@@ -21,11 +21,36 @@ from lingua_franca import *
 
 # ocaml
 from lingua_franca.ocaml import *
+import ocaml
+print(ocaml.Failure)
 print(Type)
 
 e = Test.TInt(8)
 print(e, type(e))
+try:
+    #not working
+    print(Test.eval(e))
+except ocaml.Failure as ex:
+    print(1, ex)
+except Exception as ex:
+    print(2, ex)
+except:
+    import traceback
+    print(traceback.format_exc())
+    
+
 e2 = Test.TApp(Test.TApp(Test.TAdd,e), e)
+print(e2, type(e2))
+try:
+    #not working
+    print(Test.eval(e2))
+except ocaml.Failure as ex:
+    print(1, ex)
+except Exception as ex:
+    print(2, ex)
+except:
+    import traceback
+    print(traceback.format_exc())
 
 match e:
     case Test.TInt(x):
