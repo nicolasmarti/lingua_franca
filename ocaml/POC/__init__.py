@@ -1,8 +1,10 @@
 
 __all__ = [
     'Type',
-    'Int', 'Float'
+
+    'Test',
     
 ]
 
 from .Type import *
+from .Test import *

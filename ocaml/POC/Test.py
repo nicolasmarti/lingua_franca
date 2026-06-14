@@ -1,6 +1,6 @@
 from .load import *
 
-class Type(m.Type):
+class Test(m.Test):
 
     def __init__(self, o):
         self.__o = o

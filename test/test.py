@@ -20,7 +20,33 @@ for i in dir(lingua_franca):
 from lingua_franca import *
 
 # ocaml
-print(ocaml.Int)
+from lingua_franca.ocaml import *
+print(Type)
+
+e = Test.TInt(8)
+print(e, type(e))
+e2 = Test.TApp(Test.TApp(Test.TAdd,e), e)
+
+match e:
+    case Test.TInt(x):
+        print(x)
+    case Test.TAdd:
+        print("Add")
+    case Test.TApp(x, y):
+        print("App")
+    case _:
+        print(e)
+    
+match e2:
+    case Test.TInt(x):
+        print(x)
+    case Test.TAdd:
+        print("Add")
+    case Test.TApp(x, y):
+        print("App")
+    case _:
+        print(e2)
+    
 
 # rust
 print(rust.fibonacci(50))

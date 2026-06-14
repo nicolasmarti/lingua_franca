@@ -3,8 +3,8 @@ module Type
  
   type typrim =
     
-    | Int: typrim
-    | Float: typrim
+    | TyInt: typrim
+    | TyFloat: typrim
 
   and tycomp =
 

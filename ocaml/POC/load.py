@@ -2,6 +2,6 @@ from .prelude import *
 
 m = import_ml([
     "type", 
-    "term"
+    "term",
+    "test",
 ], ["src"])
-
