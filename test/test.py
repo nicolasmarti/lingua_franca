@@ -17,21 +17,15 @@ def mdir(o):
     ])    
 
 import lingua_franca
-for i in dir(lingua_franca):
-    if "__" not in i:
-        print("%s: %s" % (
-            i, ", ".join([
-                str(j)
-                for j in dir(lingua_franca.__getattribute__(i))
-                if not "_" in str(j)
-            ])
-        ))
 
 from lingua_franca import *
 
 # ocaml
+print("#### Ocaml ####")
 from lingua_franca.ocaml import *
 import ocaml
+print("Type:", ", ".join([str(i) for i in dir(Type) if not "__" in i]))
+print("Term:", ", ".join([str(i) for i in dir(Term) if not "__" in i]))
 
 ty = Type.TyTuple(
     [Type.TyVar("s1"),
@@ -53,12 +47,12 @@ te = Term.TeTuple([
 te_ty = Term.type_infer(te)
 print( te, te_ty, Type.tysz(te_ty) )
 
-print("--------------")
-
 # rust
+print("#### Rust ####")
 print(rust.fibonacci(50))
 
 # julia
+print("#### Julia ####")
 print(julia.fibonacci(6))
 
 #
