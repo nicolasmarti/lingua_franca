@@ -1,7 +1,7 @@
 from .load import *
 
-class Type(m2.Type, m2.Type.T):
+class Type(m.Type, m.Type.T):
     pass
 
-class Term(m2.Term, m2.Term.T):
+class Term(m.Term, m.Term.T):
     pass
