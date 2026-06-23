@@ -1,10 +1,6 @@
-
 __all__ = [
     'Type',
-
-    'Test',
-    
+    'Term'
 ]
 
-from .Type import *
-from .Test import *
+from .TypeTerm import *

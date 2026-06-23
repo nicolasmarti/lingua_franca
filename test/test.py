@@ -6,6 +6,16 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.join(current_dir, "..", "..")
 sys.path.append(root_dir)
 
+def mdir(o):
+    return ", ".join([
+        "%s: %s" % (
+            str(i),
+            str(type(o.__getattribute__))
+        )
+        for i in dir(o)
+        if not "_" in str(i)
+    ])    
+
 import lingua_franca
 for i in dir(lingua_franca):
     if "__" not in i:
@@ -22,57 +32,28 @@ from lingua_franca import *
 # ocaml
 from lingua_franca.ocaml import *
 import ocaml
-print(ocaml.Failure)
-print(Type)
 
-e = Test.TInt(8)
-print(e, type(e))
-print(e("doudou"))
-try:
-    #not working
-    print(Test.eval(e))
-except ocaml.Failure as ex:
-    print(1, ex)
-except Exception as ex:
-    print(2, ex)
-except:
-    import traceback
-    print(traceback.format_exc())
-    
+ty = Type.TyTuple(
+    [Type.TyVar("s1"),
+     Type.TyVar("s2"),
+     Type.TyList(Type.TyInt())
+     ]
+)
+print(
+    ty, Type.tysz(ty)
+)
 
-e2 = Test.TApp(Test.TApp(Test.TAdd,e), e)
-print(e2, type(e2))
-try:
-    #not working
-    print(Test.eval(e2))
-except ocaml.Failure as ex:
-    print(1, ex)
-except Exception as ex:
-    print(2, ex)
-except:
-    import traceback
-    print(traceback.format_exc())
+####
 
-match e:
-    case Test.TInt(x):
-        print(x)
-    case Test.TAdd:
-        print("Add")
-    case Test.TApp(x, y):
-        print("App")
-    case _:
-        print(e)
-    
-match e2:
-    case Test.TInt(x):
-        print(x)
-    case Test.TAdd:
-        print("Add")
-    case Test.TApp(x, y):
-        print("App")
-    case _:
-        print(e2)
-    
+te = Term.TeTuple([
+    Term.TeInt(9),
+    Term.TeFloat(0.0),
+    Term.TeList([Term.TeInt(6), Term.TeInt(8)])
+])
+te_ty = Term.type_infer(te)
+print( te, te_ty, Type.tysz(te_ty) )
+
+print("--------------")
 
 # rust
 print(rust.fibonacci(50))
