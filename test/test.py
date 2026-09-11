@@ -39,13 +39,19 @@ print(
 
 ####
 
-te = Term.TeTuple([
-    Term.TeInt(9),
-    Term.TeFloat(0.0),
-    Term.TeList([Term.TeInt(6), Term.TeInt(8)])
-])
-te_ty = Term.type_infer(te)
-print( te, te_ty, Type.tysz(te_ty) )
+te = Term(
+    Term.TeTuple([
+        Term.TeInt(9),
+        Term.TeFloat(0.0),
+        Term.TeList([Term.TeInt(6), Term.TeInt(8)])
+    ])
+)
+    
+te_ty = Term.type_infer(te.te)
+print( te, type(te) )
+print( te_ty, type(te_ty) )
+print( Type.tysz(te_ty) )
+print(te + te)
 
 # rust
 print("#### Rust ####")
@@ -57,5 +63,5 @@ print(julia.fibonacci(6))
 
 #
 my_tree = Node(5, Node(3, Empty(), Empty()), Empty())
-print(tree_sum(my_tree))  # Output: 8
+print(my_tree, tree_sum(my_tree))  # Output: 8
 
