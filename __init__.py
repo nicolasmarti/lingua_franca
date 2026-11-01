@@ -1,6 +1,6 @@
 ## Ocaml
 
-import ocaml
+import ocamltest
 
 ## Rust
 

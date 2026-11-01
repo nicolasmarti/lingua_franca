@@ -8,6 +8,7 @@ def import_ml( names, subfolders = [] ):
     
     import ocaml
     import os
+    import time
     
     folders = os.path.normpath(__file__).split( os.sep )[:-1]
     
@@ -23,8 +24,12 @@ def import_ml( names, subfolders = [] ):
         )
         content.append( f.read() )
         f.close()
-        
+
+    start_time = time.time()
     m = ocaml.compile( "\n".join(content) )
+    end_time = time.time()
+
+    #print(f"import_ml: {end_time - start_time}")
     
     return m
     
